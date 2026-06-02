@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+
+# logs / editor cruft
+*.log
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# env files (in case any get added later)
+.env
+.env.local
+.env.*.local
+
+# claude session state
+.claude/
+
+# node (if tooling gets added)
+node_modules/

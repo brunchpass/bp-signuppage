@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrunchPass</title>
+  <meta name="description" content="Brunchin' on a budget. Coming soon." />
+
+  <meta property="og:title" content="BrunchPass" />
+  <meta property="og:description" content="Brunchin' on a budget. Coming soon." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://brunchpass.com" />
+  <meta property="og:image" content="assets/wallpaper.jpg" />
+
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <div class="center">
+      <img class="logo" src="assets/logo.png" alt="BrunchPass" />
+      <h1 class="title">BRUNCH WITH BENEFITS</h1>
+      <p class="sub">Launching soon in Atlanta, GA</p>
+      <div class="cta-row">
+        <button type="button" class="notify-btn" data-open-modal="notifyModal">SAVE MY SEAT</button>
+        <button type="button" class="notify-btn" data-open-modal="restaurantModal">LIST MY SPOT</button>
+      </div>
+      <p class="cta-hint">Diners join the waitlist &middot; Restaurants become founding partners</p>
+    </div>
+
+    <footer class="footer">
+      <a href="mailto:info@brunchpass.com">CONTACT US</a>
+      <a href="https://www.instagram.com/brunchpass/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+      </a>
+    </footer>
+  </main>
+
+  <div class="modal" id="notifyModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="notifyTitle">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__panel" role="document">
+      <button class="modal__close" type="button" data-close-modal aria-label="Close">&times;</button>
+
+      <h2 id="notifyTitle" class="modal__title">SAVE MY SEAT</h2>
+      <p class="modal__sub">Drop your info and we'll let you know the moment BrunchPass launches.</p>
+
+      <form id="notifyForm" class="form" novalidate>
+        <input type="hidden" name="access_key" value="b1824da2-be39-4a1a-a953-3f891828f7c6" />
+        <input type="hidden" name="subject" value="New BrunchPass signup" />
+        <input type="hidden" name="from_name" value="BrunchPass Landing" />
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" />
+
+        <label class="field">
+          <span class="field__label">Email</span>
+          <input type="email" name="email" required placeholder="you@example.com" autocomplete="email" />
+        </label>
+
+        <label class="field">
+          <span class="field__label">City or ZIP</span>
+          <input type="text" name="city_or_zip" required placeholder="Atlanta, GA or 30303" autocomplete="postal-code" />
+        </label>
+
+        <label class="field">
+          <span class="field__label">How often do you brunch monthly?</span>
+          <select name="brunch_frequency" required>
+            <option value="" disabled selected>Pick one</option>
+            <option value="1-2 times a month">1-2 times</option>
+            <option value="2-4 times a month">2-4 times</option>
+            <option value="4+ times a month">4+ times</option>
+          </select>
+        </label>
+
+        <button type="submit" class="notify-btn notify-btn--block">SAVE MY SEAT</button>
+        <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="restaurantModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="restaurantTitle">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__panel" role="document">
+      <button class="modal__close" type="button" data-close-modal aria-label="Close">&times;</button>
+
+      <h2 id="restaurantTitle" class="modal__title">LIST MY SPOT</h2>
+      <p class="modal__sub">Free to list&mdash;no catch. We'll be in touch soon.</p>
+
+      <form id="restaurantForm" class="form" novalidate>
+        <input type="hidden" name="access_key" value="b1824da2-be39-4a1a-a953-3f891828f7c6" />
+        <input type="hidden" name="subject" value="New founding restaurant inquiry" />
+        <input type="hidden" name="from_name" value="BrunchPass Landing" />
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" />
+
+        <label class="field">
+          <span class="field__label">Restaurant name</span>
+          <input type="text" name="restaurant_name" required placeholder="The Best Brunch Spot" autocomplete="organization" />
+        </label>
+
+        <label class="field">
+          <span class="field__label">Your name</span>
+          <input type="text" name="contact_name" required placeholder="Owner or manager" autocomplete="name" />
+        </label>
+
+        <label class="field">
+          <span class="field__label">Email</span>
+          <input type="email" name="email" required placeholder="you@yourrestaurant.com" autocomplete="email" />
+        </label>
+
+        <button type="submit" class="notify-btn notify-btn--block">LIST MY SPOT</button>
+        <p class="form__status" id="restaurantStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
