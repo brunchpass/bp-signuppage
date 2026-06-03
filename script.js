@@ -80,8 +80,8 @@
     });
   }
 
-  wireForm('notifyForm', 'formStatus', "You're on the list. We'll holler when brunch is served.");
-  wireForm('restaurantForm', 'restaurantStatus', "Got it. We'll reach out within a week.");
+  wireForm('notifyForm', 'formStatus', "You're on the list. Mimosas pending.");
+  wireForm('restaurantForm', 'restaurantStatus', "Got it. Our team will be in touch with the details soon.");
 
   /* -------- footer year -------- */
   const yearEl = document.getElementById('year');
