@@ -35,8 +35,39 @@
     });
   });
 
+  /* Esc closes; Tab/Shift-Tab cycle focus within the modal (focus trap). */
+  const FOCUSABLE_SELECTOR = [
+    'a[href]',
+    'button:not([disabled])',
+    'input:not([disabled]):not([type="hidden"])',
+    'select:not([disabled])',
+    'textarea:not([disabled])',
+    '[tabindex]:not([tabindex="-1"])',
+  ].join(',');
+
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && activeModal) closeModal(activeModal);
+    if (!activeModal) return;
+
+    if (e.key === 'Escape') {
+      closeModal(activeModal);
+      return;
+    }
+
+    if (e.key === 'Tab') {
+      const focusable = activeModal.querySelectorAll(FOCUSABLE_SELECTOR);
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
   });
 
   /* -------- Web3Forms submit (works for any form) -------- */
