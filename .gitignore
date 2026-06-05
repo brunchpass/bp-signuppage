@@ -16,5 +16,9 @@
 # claude session state
 .claude/
 
+# internal strategy docs — never deploy publicly
+INSTAGRAM_LAUNCH_PLAN.md
+RESTAURANT_PITCH_PLAYBOOK.md
+
 # node (if tooling gets added)
 node_modules/
